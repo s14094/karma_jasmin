@@ -1,32 +1,32 @@
 describe("validator", function () {
 
-
     beforeAll(function () {
         $('body').append(`
-        <div id="firstName">s</div>
+        <div>Poprawne imię:</div>
+        <div id="firstNameOne" class="firstName">Pawel</div>
+        <div>Niepoprawne imię:</div>
+        <div id="firstNameTwo" class="firstName">pawel</div>
+        <div>Numer:</div>
         <div id="number">22</div>
-        <div id="xor1" class="xor">00</div>
-        <div id="xor2" class="xor">d0</div>
+        <div>Pesel:</div>
         <div id="pesel">95011503554</div>
+        <div>Nip:</div>
         <div id="nip">2228881100</div>
+        <div>Email:</div>
         <div id="email">sadas@gmail.com</div>
         `);
     });
 
-    it("invalid first name", function () {
-        $('#firstName').validate(/^[A-Z][a-z]+/);
-        expect($('#firstName').css("background-color")).toEqual("rgb(255, 0, 0)");
-    });
 
     it("valid text", function () {
         $('#number').validate(/^\d+/);
         expect($('#number').css("background-color")).toEqual("rgb(0, 255, 0)");
     });
 
-    it("partialy valid", function () {
-        $('.xor').validate(/^\d[a-z]*/);
-        expect($('#xor1').css("background-color")).toEqual("rgb(0, 255, 0)");
-        expect($('#xor2').css("background-color")).toEqual("rgb(255, 0, 0)");
+    it("double validation", function () {
+        $('.firstName').validate(/^[A-Z][a-z]+/);
+        expect($('#firstNameOne').css("background-color")).toEqual("rgb(0, 255, 0)");
+        expect($('#firstNameTwo').css("background-color")).toEqual("rgb(255, 0, 0)");
     });
 
     it("valid pesel", function () {
@@ -45,9 +45,4 @@ describe("validator", function () {
         expect($('#email').css("background-color")).toEqual("rgb(0, 255, 0)");
     });
 
-
-
-
 });
-
-// karma start karma.conf.js
