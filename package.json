@@ -11,7 +11,7 @@
     "jasmine",
     "demo"
   ],
-  "author": "Tadeusz Puźniakowski",
+  "author": "Pawel Lakomiec",
   "license": "MIT",
   "devDependencies": {
     "jasmine": "^3.3.1",

@@ -5,10 +5,10 @@
         this.each(function() {
             var elem = $( this );
             if(regex.test(elem.text())) {
-                elem.css("background-color", "#00ff00")
+                elem.removeClass('invalid');
             }
             else {
-                elem.css("background-color", "#ff0000")
+                elem.addClass('invalid');
             }
         });
         return this;
